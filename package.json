@@ -1,0 +1,35 @@
+{
+  "name": "app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "export": "next export",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.11.4",
+    "@material-ui/icons": "^4.11.2",
+    "axios": "^0.21.1",
+    "cheerio": "^1.0.0-rc.10",
+    "https-proxy-agent": "^5.0.0",
+    "net": "^1.0.2",
+    "next": "11.0.0",
+    "nprogress": "^0.2.0",
+    "pino": "^6.11.3",
+    "pino-pretty": "^5.0.2",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-query": "^3.18.1",
+    "react-redux": "^7.2.4",
+    "redux": "^4.1.0",
+    "redux-thunk": "^2.3.0",
+    "tls": "0.0.1"
+  },
+  "devDependencies": {
+    "eslint": "7.28.0",
+    "eslint-config-next": "11.0.0"
+  }
+}

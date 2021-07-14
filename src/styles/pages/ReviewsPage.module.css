@@ -1,0 +1,24 @@
+.header {
+  position: sticky;
+  top: 80px;
+  z-index: 998;
+  background-color: white;
+}
+
+.filter {
+  display: flex;
+  border: 1px solid lightgray;
+  border-radius:  30px;
+  padding: 10px;
+  color: gray;
+  padding-left:  15px;
+  width: 80%;
+}
+
+.filter > input {
+  border: none;
+  flex: 1;
+  margin-left: 10px;
+  outline-width:0;
+  font-weight: 600;
+}
