@@ -1,12 +1,20 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {TextField, Button, Grid} from '@material-ui/core'
 import Link from 'next/link'
+import { useDispatch } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
 import styles from '@styles/pages/HomePage.module.css'
+import {actions} from '@redux/index'
 
 const Home = () => {
   const [url, setUrl] = useState(null)
+  const dispatch = useDispatch()
+  const {resetReview} = bindActionCreators(actions, dispatch)
 
+  useEffect(() => {
+    resetReview()
+  }, [])
   const handleChange = (event) => {
     const url = event.target.value
     setUrl(url)
@@ -14,7 +22,7 @@ const Home = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-  } 
+  }
   
   return (
     <Grid>

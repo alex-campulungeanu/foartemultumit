@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import CreateIcon from '@material-ui/icons/Create';
 import { Divider, Grid, List, ListItem, ListItemText, Typography, createStyles, makeStyles} from '@material-ui/core';
 import axios from 'axios'
@@ -7,6 +7,7 @@ import {useDispatch} from 'react-redux'
 import {bindActionCreators} from 'redux'
 
 import ReviewsList from '@components/ReviewsList'
+import {Spinner} from '@components/Spinner'
 import styles from '@styles/pages/ReviewsPage.module.css'
 import { serverApi } from '@src/config/constants'
 import {actions} from '@redux/index'
@@ -31,7 +32,7 @@ const Reviews = ({productUrl }) => {
   const [reviews, setReviews] = useState([])
   const [filterdReviews, setFilteredReviews] = useState([])
   const dispatch = useDispatch()
-  const {addTotalReview, addFilteredReview} = bindActionCreators(actions, dispatch)
+  const {addTotalReview, addFilteredReview, resetReview} = bindActionCreators(actions, dispatch)
   const { isLoading, error, data, isFetching } = useQuery(
     ['reviews', {url: productUrl}], 
     reviewsFetcher, 
@@ -39,42 +40,50 @@ const Reviews = ({productUrl }) => {
       staleTime: 0,
       onSuccess: (data) => {
         const reviews = data.data
-        console.log(reviews)
         setReviews(reviews)
         addTotalReview(reviews)
         setFilteredReviews(reviews)
         addFilteredReview(reviews)
-        
       }
     }
   )
 
-  const filterReviews = (data, filter) => {
+  useEffect(() => {
+    return () => resetReview()
+  }, [])  
+
+  const filterReviews = (data, filterWord) => {
     return data
       .filter(obj => {
         const body = obj.content.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") //remove diacritics
-        const word = filter.toLowerCase()
+        const word = filterWord.toLowerCase()
         return body.includes(word)
       }) // filter array first
-      .map(obj => ({ // then re-map to new objects
-        ...obj, // copy shallow fields
-        children: obj.children && filterReviews(obj.children) // filter children
-      }));
+      .map(obj => {
+        const n = {
+          ...obj, // copy shallow fields
+          children: obj.children && filterReviews(obj.children) // filter children
+        }
+        const colored = {...n, content: n.content.replace(filterWord, `<span style="color: red">${filterWord}</span>`)}
+        return colored
+      }
+      );
   } 
 
   const handleChange = (event) => {
     const word = event.target.value
     const filtered = filterReviews(reviews, word)
+    // const colorFiltered = filtered.replace(word, 'XXXXXX')
     setFilteredReviews(filtered)
     addFilteredReview(filtered)
   }
 
-  if (isLoading) return 'Is loading'
-  if (isFetching) return 'Is fetching'
+  // if (isLoading || isFetching) return <Spinner />
+  // if (isFetching) return <Spinner />
   
   return (
     <div>
-      <div className={styles.header}>
+      <Grid className={styles.header}>
         <List className={classes.root}>
           <ListItem>
             <ListItemText primary="Product" secondary={productUrl} />
@@ -84,8 +93,14 @@ const Reviews = ({productUrl }) => {
           <CreateIcon />
           <input type="text" onChange={handleChange}/>
         </div>
-      </div>
-      <ReviewsList reviews={filterdReviews}/>
+      </Grid>
+      {isLoading || isFetching ?
+        <div className={styles.spinner}>
+          <Spinner />
+        </div>
+        :
+        <ReviewsList reviews={filterdReviews}/>
+      }
     </div>
   )
 }
