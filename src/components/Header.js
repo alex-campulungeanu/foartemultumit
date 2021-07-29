@@ -16,14 +16,14 @@ const Header = () => {
   return (
     <div className={headerStyles.header}>
       <div className={headerStyles.left}>
-        <HeaderOption 
+        {/* <HeaderOption 
           Icon={ChatTwoToneIcon}
           title='Foarte multumit'
           onClick={() => goTo('/')}
-        />
+        /> */}
+        <HeaderOption Icon={HomeIcon} title="Home" onClick={() => goTo('/')} />
       </div>
       <div className={headerStyles.right}>
-        <HeaderOption Icon={HomeIcon} title="Home" onClick={() => goTo('/')} />
         <HeaderOption Icon={InfoIcon} title="About" onClick={() => goTo('/about')}/>
       </div>
     </div>

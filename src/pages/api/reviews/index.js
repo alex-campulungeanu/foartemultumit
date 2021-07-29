@@ -34,7 +34,6 @@ export default async function handler (req, res) {
       reviewsList = [...reviewsList, ...reviews]
     }))
 
-    logger.info(reviewsList)
     return res.status(200).json({success: true, data: reviewsList})
   } catch (error) {
     logger.error(error)

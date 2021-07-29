@@ -7,8 +7,8 @@ const redirect = (target, ctx = {}) => {
     ctx.res.writeHead(303, { Location: target });
     ctx.res.end();
   } else {
-    // In the browser, we just pretend like this never even happened ;)
-    Router.replace(target);
+    // In the browser, we just pretend like this never even happened ;) - replace if not want to go backward
+    Router.push(target);
   }
 };
 

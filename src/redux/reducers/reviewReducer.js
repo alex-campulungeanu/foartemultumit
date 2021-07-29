@@ -13,6 +13,8 @@ const reducer  = (state = initialState, action) => {
       return {...state, totalReviews: action.payload}
     case 'filteredReviews':
       return {...state, filteredReviews: action.payload}
+    case 'reset':
+      return initialState
     default:
       return state;
   }
