@@ -65,7 +65,7 @@ const getStepContent = (step) => {
   }
 }
 
-const about = () => {
+const About = () => {
   const classes = useStyles()
   const [activeStep, setActiveStep] = useState(0)
 
@@ -158,4 +158,4 @@ const about = () => {
   )
 }
 
-export default about
+export default About
