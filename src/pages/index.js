@@ -14,6 +14,7 @@ const Home = () => {
 
   useEffect(() => {
     resetReview()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   const handleChange = (event) => {
     const url = event.target.value

@@ -46,6 +46,10 @@ docker-compose up -d
 ## TODO:
 - [ ] sa ma gandesc la o strategie pentru layout-uri diferite in functie de pagina
   https://simplernerd.com/nextjs-multiple-layouts/
+  https://adamwathan.me/2019/10/17/persistent-layout-patterns-in-nextjs/
+  https://reacttricks.com/nested-dynamic-layouts-in-next-apps/
+  https://sampotter.me/tech/how-not-to-do-layouts-in-nextjs
+  https://dev.to/ozanbolel/layout-persistence-in-next-js-107g
 - [x] sa adaug redux ca sa tin comentariile in store si sa le pun in Sidebar
 - [x] sa filtrez comentariile dupa un cuvant/parte din cuvant si sa colorez acel cuvant/parte din cuvant
 - [x] adaug data comentariului

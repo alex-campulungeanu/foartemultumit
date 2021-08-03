@@ -51,6 +51,7 @@ const Reviews = ({productUrl }) => {
 
   useEffect(() => {
     return () => resetReview()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])  
 
   const filterReviews = (data, filterWord) => {
