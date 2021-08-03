@@ -11,6 +11,7 @@ import {Spinner} from '@components/Spinner'
 import styles from '@styles/pages/ReviewsPage.module.css'
 import { serverApi } from '@src/config/constants'
 import {actions} from '@redux/index'
+import {stringWrapper} from '@src/lib/misc'
 
 const reviewsFetcher = async (params) => {
   const [, { url }] = params.queryKey;
@@ -64,10 +65,10 @@ const Reviews = ({productUrl }) => {
           ...obj, // copy shallow fields
           children: obj.children && filterReviews(obj.children) // filter children
         }
-        const colored = {...n, content: n.content.replace(filterWord, `<span style="color: red">${filterWord}</span>`)}
+        // const colored = {...n, content: n.content.replace(filterWord, `<span style="color: red">${filterWord}</span>`)}
+        const colored = {...n, content: stringWrapper(n.content, filterWord)}
         return colored
-      }
-      );
+      })
   } 
 
   const handleChange = (event) => {

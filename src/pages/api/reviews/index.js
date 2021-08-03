@@ -32,6 +32,8 @@ export default async function handler (req, res) {
       const resp = await axiosService.get(urlDynamic)
       const reviews = resp.data.reviews.items
       reviewsList = [...reviewsList, ...reviews]
+      //wait 1 second before another api call
+      await new Promise(resolve => setTimeout(resolve, 1000));
     }))
 
     return res.status(200).json({success: true, data: reviewsList})
