@@ -1,0 +1,13 @@
+#!/bin/bash
+
+#. "$(dirname "$0")/_/husky.sh"
+
+set -e
+
+#when pushing to master do a build before to check if everythink is ok, a publish to Netlify is triggered
+branch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
+if [ "$branch" == "master" ]
+then
+    echo "Run precommit on branch $branch"
+    npm run build
+fi
