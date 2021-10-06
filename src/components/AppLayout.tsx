@@ -1,10 +1,15 @@
-// import Nav from './Nav'
+import { ReactElement } from 'react'
+
 import Header from './Header'
 import Meta from './Meta'
 import styles from '../styles/Layout.module.css'
 import {Sidebar} from '@components/Sidebar'
 
-const Layout = ({children}) => {
+interface AppLayoutProps {
+  children: ReactElement
+}
+
+const AppLayout = ({children}: AppLayoutProps): JSX.Element => {
   return (
     <>
       <Meta />
@@ -21,4 +26,4 @@ const Layout = ({children}) => {
   )
 }
 
-export default Layout
+export default AppLayout

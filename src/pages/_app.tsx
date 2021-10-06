@@ -8,7 +8,7 @@ import "nprogress/nprogress.css";
 import {Provider} from 'react-redux'
 
 import theme from '@src/theme/index'
-import Layout from '../components/Layout'
+import AppLayout from '../components/AppLayout'
 import '../styles/globals.css'
 import {queryClient} from '@src/lib/queryClient'
 import {store} from '@redux/store'
@@ -35,9 +35,9 @@ function MyApp({ Component, pageProps }: AppProps): ReactElement {
     <Provider store={store}>
       <QueryClientProvider client={queryClient}>
         <MuiThemeProvider theme={theme}>
-          <Layout>
+          <AppLayout>
             <Component {...pageProps} />
-          </Layout>
+          </AppLayout>
         </MuiThemeProvider>
       </QueryClientProvider>
     </Provider>
