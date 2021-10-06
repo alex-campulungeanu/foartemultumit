@@ -36,7 +36,6 @@ docker-compose up -d
 - mandatory to update:
   APP_NAME=foartemultumit
   NEXT_PUBLIC_SERVER_API_URL=
--npm run dev
 
 ## 💻 Deployment
 - check if NEXT_PUBLIC_SERVER_API_URL is set
@@ -45,8 +44,6 @@ docker-compose up -d
 
 
 ## TODO:
-- [ ] ca un proxy as putea sa foloesc https://scraperbox.com/(Scrape web pages without getting blocked)
-- [ ] change layout to https://github.com/DavidIlie?tab=repositories
 - [ ] sa ma gandesc la o strategie pentru layout-uri diferite in functie de pagina
   https://simplernerd.com/nextjs-multiple-layouts/
   https://adamwathan.me/2019/10/17/persistent-layout-patterns-in-nextjs/
