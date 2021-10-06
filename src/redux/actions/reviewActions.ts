@@ -40,7 +40,7 @@ export const addFilteredReview = (total) => {
   }
 }
 
-export const resetReview = (total) => {
+export const resetReview = () => {
   return (dispatch) => {
     dispatch({
       type: 'reset'

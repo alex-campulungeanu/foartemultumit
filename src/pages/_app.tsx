@@ -1,4 +1,5 @@
-import { useEffect } from 'react'
+import { useEffect, ReactElement } from 'react'
+import {AppProps} from 'next/app'
 import Router from "next/router";
 import NProgress from "nprogress";
 import { MuiThemeProvider } from '@material-ui/core/styles';
@@ -18,7 +19,7 @@ Router.events.on("routeChangeStart", () => {
 Router.events.on("routeChangeComplete", () => NProgress.done());
 Router.events.on("routeChangeError", () => NProgress.done());
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps }: AppProps): ReactElement {
   
   useEffect(() => {
     // Remove the server-side injected CSS.
