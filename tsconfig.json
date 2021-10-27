@@ -8,6 +8,7 @@
     "removeComments": true,
     "strictFunctionTypes": true,
     "noImplicitThis": true,
+    "noImplicitAny": false,
     "noUnusedLocals": true,
     "noUnusedParameters": false,
     "noFallthroughCasesInSwitch": true,

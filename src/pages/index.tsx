@@ -3,9 +3,10 @@ import {TextField, Button, Grid} from '@material-ui/core'
 import Link from 'next/link'
 import { useDispatch } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import {actions} from '@redux/index'
 
 import styles from '@styles/pages/HomePage.module.css'
-import {actions} from '@redux/index'
+import TopNavigation from '@components/TopNavigation'
 
 const Home = () => {
   const [url, setUrl] = useState(null)
@@ -26,32 +27,31 @@ const Home = () => {
   }
   
   return (
-    <Grid>
+    <div className='content-container'>
+      {/* TODO: move TopNavition to AppLayout */}
+      <TopNavigation />
       <form onSubmit={handleSubmit}>
-        <Grid className={styles.search}>
-          <TextField
+        <div>
+          <input type="text" placeholder="Put here the URL of the product"/>
+          {/* <TextField
             placeholder="Put here the URL of the product"
             multiline
             fullWidth={true}
             variant="outlined"
             rows={6}
             onChange={handleChange}
-          />
-        </Grid>
+          /> */}
+        </div>
         <br/>
-        <Grid 
-          container 
-          direction='row' 
-          justify='flex-end'
-        >
-          <Grid item>
+        <div className='flex flex-row justify-end'>
+          <div>
             <Link href={`/reviews?productUrl=${url}`} as={`/reviews?productUrl=${url}`} passHref>
-              <Button variant="contained" color="secondary">Search</Button>
+              <button>Search</button>
             </Link>
-          </Grid>
-        </Grid>
+          </div>
+        </div>
       </form>
-    </Grid>
+    </div>
   )
 }
 

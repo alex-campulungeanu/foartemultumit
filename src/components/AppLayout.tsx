@@ -1,9 +1,11 @@
 import { ReactElement } from 'react'
-
-import Header from './Header'
 import Meta from './Meta'
-import styles from '../styles/Layout.module.css'
-import {Sidebar} from '@components/Sidebar'
+
+// import Header from './Header'
+// import styles from '../styles/Layout.module.css'
+// import {Sidebar} from '@components/Sidebar'
+import ReviewsSummaryBar from './ReviewsSummaryBar'
+import TopNavigation from './TopNavigation'
 
 interface AppLayoutProps {
   children: ReactElement
@@ -11,9 +13,12 @@ interface AppLayoutProps {
 
 const AppLayout = ({children}: AppLayoutProps): JSX.Element => {
   return (
-    <>
+    <div className='flex'>
       <Meta />
-      <div className={styles.container}>
+      <ReviewsSummaryBar />
+      {/* <TopNavigation /> */}
+      {children}
+      {/* <div className={styles.container}>
         <Header/>
         <div className={styles.app_body}>
           <Sidebar />
@@ -21,8 +26,8 @@ const AppLayout = ({children}: AppLayoutProps): JSX.Element => {
             {children}
           </div>
         </div>
-      </div>
-    </>
+      </div> */}
+    </div>
   )
 }
 

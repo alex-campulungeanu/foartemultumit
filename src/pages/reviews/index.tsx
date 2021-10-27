@@ -12,6 +12,7 @@ import styles from '@styles/pages/ReviewsPage.module.css'
 import { serverApi } from '@src/config/constants'
 import {actions} from '@redux/index'
 import {stringWrapper} from '@src/lib/misc'
+import TopNavigation from '../../components/TopNavigation'
 
 const reviewsFetcher = async (params) => {
   const [, { url }] = params.queryKey;
@@ -84,7 +85,8 @@ const Reviews = ({productUrl }) => {
   // if (isFetching) return <Spinner />
   
   return (
-    <div>
+    <div className='content-container'>
+      <TopNavigation />
       <Grid className={styles.header}>
         <List className={classes.root}>
           <ListItem>
@@ -97,7 +99,7 @@ const Reviews = ({productUrl }) => {
         </div>
       </Grid>
       {isLoading || isFetching ?
-        <div className={styles.spinner}>
+        <div className='flex justify-center items-center'>
           <Spinner />
         </div>
         :
