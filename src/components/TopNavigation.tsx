@@ -2,19 +2,27 @@ import React from 'react'
 import {FaRegBell, FaUserCircle, FaHashtag, FaSun, FaMoon, FaSearch} from 'react-icons/fa'
 
 import useDarkMode from '../hooks/useDarkMode'
+// import {HeaderOption} from '@components/HeaderOption'
+import redirect from '@src/lib/redirect'
 
 const TopNavigation = () => {
+  //TODO: change this to a proper redirect, maybe using Link from next
+  const goTo = (to: string) => {
+    redirect(to);
+  }
   return (
     <div className='top-navigation'>
       <FaHashtag size='20' className='title-hashtag' />
-      <h5 className='title-text'>Foarte multumit</h5>
+      <div className='title-text' onClick={() => goTo('/')}>
+        <h5>Foarte multumit</h5>
+      </div>
       <ThemeIcon />
-      <div  className='search'>
+      {/* <div  className='search'>
         <input className='search-input' type="text" placeholder='Search ...'/>
         <FaSearch size='18' className='text-secondary my-auto' />
-      </div>
-      <FaRegBell size='24' className='top-navigation-icon' />
-      <FaUserCircle size='24' className='top-navigation-icon' />
+      </div> */}
+      {/* <FaRegBell size='24' className='top-navigation-icon' /> */}
+      {/* <FaUserCircle size='24' className='top-navigation-icon' /> */}
     </div>
   )
 }

@@ -1,6 +1,7 @@
 import Router from 'next/router';
 
-const redirect = (target, ctx = {}) => {
+// TODO: fix any from ctx
+const redirect = (target: string, ctx: any = {}) => {
   if (ctx.res) {
     // server
     // 303: "See other"

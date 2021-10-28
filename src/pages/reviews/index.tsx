@@ -1,36 +1,22 @@
 import { useEffect, useState } from 'react'
-import CreateIcon from '@material-ui/icons/Create';
-import { Divider, Grid, List, ListItem, ListItemText, Typography, createStyles, makeStyles} from '@material-ui/core';
 import axios from 'axios'
 import { useQuery } from 'react-query'
 import {useDispatch} from 'react-redux'
 import {bindActionCreators} from 'redux'
+import {BsInfoCircle} from 'react-icons/bs'
 
 import ReviewsList from '@components/ReviewsList'
 import {Spinner} from '@components/Spinner'
-import styles from '@styles/pages/ReviewsPage.module.css'
-import { serverApi } from '@src/config/constants'
 import {actions} from '@redux/index'
 import {stringWrapper} from '@src/lib/misc'
-import TopNavigation from '../../components/TopNavigation'
+import {FilterByBar} from '@components/FilterByBar'
 
 const reviewsFetcher = async (params) => {
   const [, { url }] = params.queryKey;
   return axios.post(`/api/reviews`, {url: url}).then(res => res.data)
 }
 
-const useStyles = makeStyles((theme) =>
-  createStyles({
-    root: {
-      width: '100%',
-      backgroundColor: theme.palette.background.paper,
-    }
-  }),
-);
-
-
 const Reviews = ({productUrl }) => {
-  const classes = useStyles();
   const [reviews, setReviews] = useState([])
   const [filterdReviews, setFilteredReviews] = useState([])
   const dispatch = useDispatch()
@@ -50,7 +36,7 @@ const Reviews = ({productUrl }) => {
     }
   )
 
-  useEffect(() => {
+  useEffect(() : any => {
     return () => resetReview()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])  
@@ -65,7 +51,7 @@ const Reviews = ({productUrl }) => {
       .map(obj => {
         const n = {
           ...obj, // copy shallow fields
-          children: obj.children && filterReviews(obj.children) // filter children
+          children: obj.children && filterReviews(obj.children, '') // filter children
         }
         // const colored = {...n, content: n.content.replace(filterWord, `<span style="color: red">${filterWord}</span>`)}
         const colored = {...n, content: stringWrapper(n.content, filterWord)}
@@ -81,30 +67,23 @@ const Reviews = ({productUrl }) => {
     addFilteredReview(filtered)
   }
 
-  // if (isLoading || isFetching) return <Spinner />
-  // if (isFetching) return <Spinner />
+  if (isLoading || isFetching) return (
+    <div className='mt-4'>
+      <Spinner />
+    </div>
+  )
   
   return (
     <div className='content-container'>
-      <TopNavigation />
-      <Grid className={styles.header}>
-        <List className={classes.root}>
-          <ListItem>
-            <ListItemText primary="Product" secondary={productUrl} />
-          </ListItem>
-        </List>
-        <div className={styles.filter}>
-          <CreateIcon />
-          <input type="text" onChange={handleChange}/>
-        </div>
-      </Grid>
-      {isLoading || isFetching ?
-        <div className='flex justify-center items-center'>
-          <Spinner />
-        </div>
-        :
-        <ReviewsList reviews={filterdReviews}/>
-      }
+      <div className='product-url'>
+        <BsInfoCircle size='22' className='mr-3'/>
+        {productUrl}
+      </div>
+      {/* Check why doesn't work fi put content-list class on next div */}
+      <div>
+         <ReviewsList reviews={filterdReviews}/>
+      </div>
+      <FilterByBar handleFilter={handleChange}/>
     </div>
   )
 }

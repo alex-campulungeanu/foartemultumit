@@ -3,6 +3,8 @@ import {useSelector} from 'react-redux'
 import styles from '@src/styles/Sidebar.module.css'
 
 export const Sidebar = () => {
+  // TODO: fix this
+  // @ts-ignore:next-line
   const reviews = useSelector((state) => state.reviews)
 
   return (

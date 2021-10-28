@@ -72,6 +72,10 @@ a {
     @apply ml-auto mr-4;
   }
 
+  .top-navigation-icon:last-of-type {
+    @apply ml-auto mr-16;
+  }
+
   .title-hashtag {
     @apply text-lg tracking-wider font-semibold text-gray-500 
     ml-2 my-auto;
@@ -80,25 +84,33 @@ a {
   .title-text {
     @apply text-xl text-gray-500 tracking-wider font-semibold text-opacity-80 
     mr-auto ml-2 my-auto 
-    transition duration-300 ease-in-out;
+    transition duration-300 ease-in-out
+    cursor-pointer;
   }
 
-  .search {
-    @apply w-1/5 flex items-center justify-start 
+  .search-url {
+    @apply w-11/12 flex items-center justify-start 
     bg-gray-400 dark:bg-gray-600
     text-gray-500
-    px-2 h-9 ml-0 mr-0 
+    px-2 h-24 mx-0 
     rounded-md shadow-md
     transition duration-300 ease-in-out;
   }
 
-  .search-input {
+  .search-url-input {
     @apply w-full font-sans font-semibold
     bg-transparent outline-none 
-    text-gray-500  placeholder-gray-500
-    pl-1 rounded;
+    text-gray-600  placeholder-gray-500 focus:placeholder-opacity-30
+    pl-1 rounded
+    h-10;
   }
 
+  .search-url-btn {
+    @apply flex flex-row justify-center items-center
+    rounded-lg shadow-lg w-1/4 h-10 mt-5
+    bg-green-300 text-gray-500
+    font-bold;
+  }
   .content-container {
     @apply flex flex-col 
     bg-gray-300 dark:bg-gray-700
@@ -114,30 +126,29 @@ a {
     overflow-y-scroll;
   }
 
-  .post {
+  .review {
     @apply w-full
     flex flex-row items-center justify-evenly
-    py-4 px-8 m-0
-    cursor-pointer;
+    py-4 px-8 m-0;
   }
 
-  .post-selected {
+  .review-selected {
     @apply bg-green-400 dark:bg-gray-900
     shadow-md;
   }
 
-  .post-content {
+  .review-content {
     @apply w-4/5 
     flex flex-col justify-start 
     ml-auto;
   }
 
-  .post-text {
+  .review-text {
     @apply text-lg text-left text-gray-800 dark:text-white 
     mr-auto whitespace-normal;
   }
 
-  .post-owner {
+  .review-owner {
     @apply text-left font-semibold text-gray-800 dark:text-white mr-2 cursor-pointer;
   }
 
@@ -162,7 +173,8 @@ a {
 
   .bottom-bar {
     @apply flex flex-row items-center justify-between 
-    fixed left-88 right-8 bottom-2 
+    fixed right-8 bottom-2 
+    w-4/12
     rounded-lg shadow-lg 
     bg-gray-400 dark:bg-gray-600 px-2
     h-12;
@@ -173,6 +185,7 @@ a {
     bg-transparent outline-none 
     ml-0 mr-auto
     text-gray-500  dark:text-gray-400 placeholder-gray-500
+    focus:placeholder-opacity-30
     cursor-text;
   }
 
@@ -228,10 +241,14 @@ a {
 
   .dropdown-selection-text {
     @apply text-gray-500 font-semibold tracking-wide
-    mr-auto 
+    mr-auto
     transition duration-300 ease-in-out 
     hover:text-pink-500 dark:hover:text-gray-500
     cursor-pointer;
+  }
+  
+  .product-url {
+    @apply flex justify-center text-green-400 text-opacity-90 text-base font-bold
   }
 }
 

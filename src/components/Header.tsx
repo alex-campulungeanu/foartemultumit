@@ -1,11 +1,10 @@
 import React from 'react'
-import ChatTwoToneIcon from '@material-ui/icons/ChatTwoTone';
 import InfoIcon from '@material-ui/icons/Info';
 import HomeIcon from '@material-ui/icons/Home';
 import redirect from '@src/lib/redirect'
 
 import headerStyles from '../styles/Header.module.css'
-import HeaderOption from './HeaderOption'
+import {HeaderOption} from '@components/HeaderOption'
 
 const Header = () => {
   //TODO: change this to a proper redirect, maybe using Link from next

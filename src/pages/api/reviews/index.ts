@@ -1,3 +1,5 @@
+import { BasicAcceptedElems } from 'cheerio'
+
 import {axiosService} from '@services/axiosService'
 import logger from '@services/pinoService'
 import {fetchHtml} from '@utils/scrapping'
@@ -11,12 +13,12 @@ export default async function handler (req, res) {
   // const url = 'https://www.emag.ro/sistem-powerup-rog-custom-watercooling-argb-amd-ryzen-9-5900x-12core-3-7-4-8ghz-64-gb-ddr4-ssd-2tb-m-2-asus-rog-x570-f-rtx-3090-24gb-gddr6x-384bit-850w-p7-rog-r926/pd/DBK7RDMBM/'
 
   try {
-    let reviewsList = []
+    let reviewsList: Array<any> = []
     const $ = await fetchHtml(url)
-    const container = $('#navbar_sticky').html()
+    const container: BasicAcceptedElems<any> | undefined= $('#navbar_sticky').html()
     const nrReviewsRaw = $(container).find('a[href=#reviews-section]').text()
     const regExp = /\(([^)]+)\)/;
-    const nrReviews = regExp.exec(nrReviewsRaw)[1];
+    const nrReviews: number | null = parseInt(regExp.exec(nrReviewsRaw)![1]);
     // const nrReviews = 345;
     const nrReviewsArr  = getIntegerAndRemainder(nrReviews, reviewsTreshhold)
     const urlFeedback = url.slice(0, 20) + 'product-feedback/' + url.slice(20)
@@ -32,6 +34,7 @@ export default async function handler (req, res) {
       const resp = await axiosService.get(urlDynamic)
       const reviews = resp.data.reviews.items
       reviewsList = [...reviewsList, ...reviews]
+      console.log(reviewsList)
       //wait 1 second before another api call
       await new Promise(resolve => setTimeout(resolve, 1000));
     }))

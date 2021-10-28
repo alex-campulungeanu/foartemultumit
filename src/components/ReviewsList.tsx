@@ -1,9 +1,8 @@
-import styles from '../styles/Review.module.css'
 import Reviewtem from './Reviewtem'
 
 const ReviewsList = ({reviews}) => {
   return (
-    <div className={styles.grid}>
+    <div className='content-list'>
       {reviews.map(review => (
         <Reviewtem review={review} key={review.id}/>
       ))}
