@@ -4,6 +4,7 @@ import {FaRegBell, FaUserCircle, FaHashtag, FaSun, FaMoon, FaSearch} from 'react
 import useDarkMode from '../hooks/useDarkMode'
 // import {HeaderOption} from '@components/HeaderOption'
 import redirect from '@src/lib/redirect'
+import Logo from '@components/Logo'
 
 const TopNavigation = () => {
   //TODO: change this to a proper redirect, maybe using Link from next
@@ -12,7 +13,10 @@ const TopNavigation = () => {
   }
   return (
     <div className='top-navigation'>
-      <FaHashtag size='20' className='title-hashtag' />
+      {/* <FaHashtag size='20' className='title-hashtag' /> */}
+      <div className='ml-3'>
+        <Logo />
+      </div>
       <div className='title-text' onClick={() => goTo('/')}>
         <h5>Foarte multumit</h5>
       </div>
