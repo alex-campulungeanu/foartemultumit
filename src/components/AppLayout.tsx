@@ -16,8 +16,8 @@ const AppLayout = ({children}: AppLayoutProps): JSX.Element => {
   return (
     <div className='flex'>
       <Meta />
-      <ReviewsSummaryBar />
       <Sidebar />
+      <ReviewsSummaryBar />
       <div className='content-container'>
         <TopNavigation />
         {children}

@@ -8,7 +8,7 @@ import { useRouter } from 'next/router'
 
 import {prepareUrl} from '@src/lib/misc'
 
-const Home = () => {
+const Home = (): JSX.Element => {
   const [url, setUrl] = useState('')
   const [urlError, setUrlError] = useState('')
   const router = useRouter()
