@@ -154,8 +154,14 @@ a {
 
   .avatar-wrapper {
     @apply flex flex-col items-center
-    w-12 
-    m-0 ml-auto mb-auto;
+     justify-center
+    w-12
+    h-12
+    rounded-full
+    bg-gradient-to-b
+    m-0 ml-auto mb-auto
+    text-gray-600
+    font-bold;
   }
 
   .avatar {
@@ -248,7 +254,7 @@ a {
   }
   
   .product-url {
-    @apply flex justify-center text-green-400 text-opacity-90 text-base font-bold
+    @apply flex justify-center text-green-400 text-opacity-90 text-base font-bold mt-4
   }
 }
 

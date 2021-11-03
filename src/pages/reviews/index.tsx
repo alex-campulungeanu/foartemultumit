@@ -8,7 +8,7 @@ import {BsInfoCircle} from 'react-icons/bs'
 import ReviewsList from '@components/ReviewsList'
 import {Spinner} from '@components/Spinner'
 import {actions} from '@redux/index'
-import {stringWrapper} from '@src/lib/misc'
+import {stringWrapper} from '@utils/misc'
 import {FilterByBar} from '@components/FilterByBar'
 
 const reviewsFetcher = async (params) => {
@@ -72,9 +72,17 @@ const Reviews = ({productUrl }) => {
       <Spinner />
     </div>
   )
+
+  if (error){
+    return (
+      <div className='mt-4'>
+        some error when fetching comments
+      </div>
+    )
+  }
   
   return (
-    <div className='content-container'>
+    <div>
       <div className='product-url'>
         <BsInfoCircle size='22' className='mr-3'/>
         {productUrl}
