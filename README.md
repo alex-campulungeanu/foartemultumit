@@ -44,6 +44,10 @@ docker-compose up -d
 
 
 ## TODO:
+- [ ] sa adaug paginare pentru reviewuri (filtrarea sa tina cont si de paginare)
+- [ ] add a git hook with build before merging to master
+- [ ] sa sortez comentariile in functie de likeuri/data etc
+- [ ] sa factot background-ul fill cu gri
 - [x] sa ma gandesc la o strategie pentru layout-uri diferite in functie de pagina
   https://simplernerd.com/nextjs-multiple-layouts/
   https://adamwathan.me/2019/10/17/persistent-layout-patterns-in-nextjs/
@@ -53,13 +57,10 @@ docker-compose up -d
 - [x] sa adaug redux ca sa tin comentariile in store si sa le pun in Sidebar
 - [x] sa filtrez comentariile dupa un cuvant/parte din cuvant si sa colorez acel cuvant/parte din cuvant
 - [x] adaug data comentariului
-- [ ] sa unific directoarele utils si misc
-- [ ] sa sortez comentariile in functie de likeuri/data etc
-- [ ] sa adaug validarea pe textfieldul de url cand apas pe search (ar trebuie sa aiba formatul https://www.emag.ro/<titlu_telefon>/pd/<cod_produs>/)
+- [x] sa unific directoarele utils si misc
+- [x] sa adaug validarea pe textfieldul de url cand apas pe search (ar trebuie sa aiba formatul https://www.emag.ro/<titlu_telefon>/pd/<cod_produs>/)
 - [x] sa un un spinner pentru loading
-- [ ] sa adaug paginare pentru reviewuri (filtrarea sa tina cont si de paginare)
 - [x] api-ul pentru reviewuri accepta maxim 100 pe request ar trebui sa il impart in cate 100
-- [ ] add a git hook with build before merging to master
 - [x] inputul pentru filtrare sa il fac sticky sus
 - [x] sa iau din url doar ce imi trebuie: https://www.emag.ro/<titlu_telefon>/pd/<cod_produs>/
 - [x] sa refac url-ul venit , ar trebui sa fie de forma
