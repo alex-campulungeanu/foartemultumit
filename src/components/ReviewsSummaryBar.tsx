@@ -15,9 +15,9 @@ const ReviewsSummaryBar = () => {
   // @ts-ignore:next-line
   const reviews = useSelector((state) => state.reviews)
   return (
-    <div className='channel-bar shadow-lg'>
+    <div className='summary-bar'>
       <SummaryTitle />
-      <div className='channel-container'>
+      <div className='summary-container'>
         <Dropdown header='Reviews' reviews={reviews}/>
       </div>
     </div>
@@ -71,8 +71,8 @@ const TopicSelection = ({label, number}: {label: string, number: string}) => {
 
 const SummaryTitle = () => {
   return (
-    <div className='channel-block'>
-      <h5 className='channel-block-text'>Summary</h5>
+    <div className='summary-block'>
+      <h5 className='summary-block-text'>Summary</h5>
     </div>
   )
 }
