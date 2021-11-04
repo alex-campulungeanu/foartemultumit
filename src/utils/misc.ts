@@ -1,3 +1,15 @@
+const randomColors = [
+  '#F44336', '#e91e63', '#9c27b0', '#673ab7',
+  '#ff9800', '#ff5722', '#795548', '#607d8b',
+  '#3f51b5', '#2196F3', '#00bcd4', '#009688',
+  '#2196F3', '#32c787', '#00BCD4', '#ff5652',
+  '#ffc107', '#ff85af', '#FF9800', '#39bbb0',
+  '#4CAF50', '#ffeb3b', '#ffc107', '#A71D31',
+  '#D5BF86', '#A71D31', '#3F0D12', '#988F2A',
+  '#599FDF', '#322F20', '#6A5837', '#FE5F00',
+  '#0A2047', '#959252', '#77869E', '#923F35',
+];
+
 export const getIntegerAndRemainder = (divider: number, treshhold: number): number[]=> {
   //function to return an array with numbers of time when threshold is in divider
   let arr:  number[] = []
@@ -54,4 +66,25 @@ export const prepareUrl = (url: string): [boolean, string] => {
   } catch (error) {
     return [false, wrongUrlMsg]
   }  
+}
+
+export const getAuthorInitials = (name: string): string => {
+  const nameSplitted: string[] = name.split(' ')
+  const initials = nameSplitted.map((item, idx) => {
+    if (idx < 2) {
+      return item.charAt(0)
+    }
+  })
+  return initials.join(' ')
+}
+
+export function getRandomColor(inputString) {
+  inputString = inputString.substr(0, 10);
+
+  var hash = 0;
+  for (var i = 0; i < inputString.length; i++) {
+      hash = 31 * hash + inputString.charCodeAt(i);
+  }
+  var index = Math.abs(hash % randomColors.length);
+  return randomColors[index];
 }

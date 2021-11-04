@@ -6,9 +6,9 @@ import {actions} from '@redux/index'
 import { FaSearch, FaSistrix } from 'react-icons/fa'
 import { useRouter } from 'next/router'
 
-import {prepareUrl} from '@src/lib/misc'
+import {prepareUrl} from '@utils/misc'
 
-const Home = () => {
+const Home = (): JSX.Element => {
   const [url, setUrl] = useState('')
   const [urlError, setUrlError] = useState('')
   const router = useRouter()

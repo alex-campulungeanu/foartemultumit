@@ -5,7 +5,7 @@ export const config = {
 }
 
 //!!! cannont use nodejs in client
-export const serverApi = dev ? 'http://localhost:305000000' : process.env.NEXT_PUBLIC_SERVER_API_URL
+export const serverApi = dev ? 'http://localhost:3050' : process.env.NEXT_PUBLIC_SERVER_API_URL
 export const target = 'https://www.emag.ro/'
 
 
