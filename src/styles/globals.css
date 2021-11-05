@@ -53,24 +53,20 @@ a {
 
   .sidebar-hr {
     @apply bg-gray-200 dark:bg-gray-800 
-    border border-gray-200 dark:border-gray-800 rounded-full
-    mx-2;
+    border border-gray-200 dark:border-gray-800 rounded-full mx-2;
   }
 
   .summary-bar {
-    @apply fixed w-60 m-0 ml-16 flex flex-col bg-gray-200 dark:bg-gray-800 h-screen shadow-lg
+    @apply fixed w-56 m-0 ml-16 flex flex-col bg-gray-200 dark:bg-gray-800 h-screen shadow-lg
     overflow-auto;
   }
 
   .summary-container {
-    @apply flex flex-col items-center justify-start 
-    p-1 m-0;
+    @apply flex flex-col items-center justify-start p-1 m-0;
   }
 
   .summary-block {
-    @apply flex items-center justify-center 
-    h-16 
-    m-0 p-0;
+    @apply flex items-center justify-center h-16 m-0 p-0;
   }
 
   .summary-block-text {
@@ -113,6 +109,22 @@ a {
     transition duration-300 ease-in-out 
     hover:text-pink-500 dark:hover:text-gray-500
     cursor-pointer;
+  }
+
+  .content-container {
+    @apply flex flex-col
+    bg-gray-300 dark:bg-gray-700
+    h-full 
+    w-full
+    ml-72
+    overflow-hidden;
+  }
+
+  .review-list {
+    @apply flex flex-col items-center 
+    h-full w-full 
+    mt-0 ml-0 mx-auto px-0 pb-12 
+    overflow-y-scroll;
   }
 
   .top-navigation {
@@ -173,20 +185,6 @@ a {
     rounded-lg shadow-lg w-1/4 h-10 mt-5
     bg-green-300 text-gray-500
     font-bold;
-  }
-  .content-container {
-    @apply flex flex-col
-    bg-gray-300 dark:bg-gray-700
-    m-0 
-    h-full w-full 
-    overflow-hidden;
-  }
-
-  .content-list {
-    @apply flex flex-col items-center 
-    h-full w-full 
-    mt-0 ml-0 mx-auto px-0 pb-12 
-    overflow-y-scroll;
   }
 
   .review {
