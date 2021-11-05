@@ -14,11 +14,11 @@ const TopNavigation = () => {
   return (
     <div className='top-navigation'>
       {/* <FaHashtag size='20' className='title-hashtag' /> */}
-      <div className='ml-3'>
-        <Logo />
-      </div>
-      <div className='title-text' onClick={() => goTo('/')}>
-        <h5>Foarte multumit</h5>
+      <div className='flex flex-row cursor-pointer' onClick={() => goTo('/')}>
+        <Logo className='ml-3'/>
+        <div className='title-text'>
+          <h5>Foarte multumit</h5>
+        </div>
       </div>
       <ThemeIcon />
       {/* <div  className='search'>

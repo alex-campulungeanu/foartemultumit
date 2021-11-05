@@ -128,7 +128,7 @@ a {
   }
 
   .top-navigation {
-    @apply flex flex-row items-center justify-evenly 
+    @apply flex flex-row items-center justify-between
     bg-gray-300 dark:bg-gray-700 bg-opacity-90 
     w-full h-16 
     m-0 
@@ -159,8 +159,7 @@ a {
   .title-text {
     @apply text-xl text-gray-500 tracking-wider font-semibold text-opacity-80 
     mr-auto ml-2 my-auto 
-    transition duration-300 ease-in-out
-    cursor-pointer;
+    transition duration-300 ease-in-out;
   }
 
   .search-url {
@@ -257,7 +256,9 @@ a {
   }
 
   .product-url {
-    @apply flex justify-center text-green-400 text-opacity-90 text-base font-bold mt-4
+    @apply flex justify-center items-center 
+    text-green-400 text-opacity-90 text-base font-bold mt-4 mx-4 p-4
+    border-2 shadow-md rounded-md
   }
 }
 

@@ -3,13 +3,13 @@ import axios from 'axios'
 import { useQuery } from 'react-query'
 import {useDispatch} from 'react-redux'
 import {bindActionCreators} from 'redux'
-import {BsInfoCircle} from 'react-icons/bs'
 
 import ReviewsList from '@components/ReviewsList'
 import {Spinner} from '@components/Spinner'
 import {actions} from '@redux/index'
 import {stringWrapper} from '@utils/misc'
 import {FilterByBar} from '@components/FilterByBar'
+import {ProductUrlCard} from '@components/ProductUrlCard'
 
 const reviewsFetcher = async (params) => {
   const [, { url }] = params.queryKey;
@@ -83,10 +83,7 @@ const Reviews = ({productUrl }) => {
   
   return (
     <div>
-      <div className='product-url'>
-        <BsInfoCircle size='22' className='mr-3'/>
-        {productUrl}
-      </div>
+      <ProductUrlCard productUrl = {productUrl}/>
       {/* Check why doesn't work fi put content-list class on next div */}
       <div>
          <ReviewsList reviews={filterdReviews}/>
