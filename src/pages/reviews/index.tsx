@@ -82,7 +82,7 @@ const Reviews = ({productUrl }) => {
   }
   
   return (
-    <div className='h-screen'>
+    <div>
       <ProductUrlCard productUrl = {productUrl}/>
       {/* Check why doesn't work fi put content-list class on next div */}
       <div>

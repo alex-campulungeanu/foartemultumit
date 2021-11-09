@@ -44,10 +44,10 @@ docker-compose up -d
 
 
 ## TODO:
+- [ ] sa fac tot background-ul fill cu gri pe pagina cu reviewuri
 - [ ] sa adaug paginare pentru reviewuri (filtrarea sa tina cont si de paginare)
 - [ ] add a git hook with build before merging to master
 - [ ] sa sortez comentariile in functie de likeuri/data etc
-- [ ] sa factot background-ul fill cu gri
 - [x] sa ma gandesc la o strategie pentru layout-uri diferite in functie de pagina
   https://simplernerd.com/nextjs-multiple-layouts/
   https://adamwathan.me/2019/10/17/persistent-layout-patterns-in-nextjs/

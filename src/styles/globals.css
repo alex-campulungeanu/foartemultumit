@@ -115,6 +115,7 @@ a {
     @apply flex flex-col
     bg-gray-300 dark:bg-gray-700
     w-full
+    h-full
     ml-72
     overflow-hidden;
   }
