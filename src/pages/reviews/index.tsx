@@ -68,7 +68,7 @@ const Reviews = ({productUrl }) => {
   }
 
   if (isLoading || isFetching) return (
-    <div className='mt-4'>
+    <div className='flex justify-center items-center h-screen'>
       <Spinner />
     </div>
   )
@@ -82,7 +82,7 @@ const Reviews = ({productUrl }) => {
   }
   
   return (
-    <div>
+    <div className='h-screen'>
       <ProductUrlCard productUrl = {productUrl}/>
       {/* Check why doesn't work fi put content-list class on next div */}
       <div>

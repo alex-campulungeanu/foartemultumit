@@ -114,7 +114,6 @@ a {
   .content-container {
     @apply flex flex-col
     bg-gray-300 dark:bg-gray-700
-    h-full 
     w-full
     ml-72
     overflow-hidden;
