@@ -10,6 +10,7 @@ module.exports = {
     }
     return config
   },
+  // distDir: 'build', // custom build directory
 
   // pageExtensions: ["page.js"],
 }

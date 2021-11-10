@@ -48,6 +48,8 @@ docker-compose up -d
 - [ ] sa adaug paginare pentru reviewuri (filtrarea sa tina cont si de paginare)
 - [ ] add a git hook with build before merging to master
 - [ ] sa sortez comentariile in functie de likeuri/data etc
+- [ ] sa factot background-ul fill cu gri
+- [ ] sa pun lazy loading pe review-uri cand sunt multe pe pagin, sa vad cum fac cu filtrarea in cazul asta
 - [x] sa ma gandesc la o strategie pentru layout-uri diferite in functie de pagina
   https://simplernerd.com/nextjs-multiple-layouts/
   https://adamwathan.me/2019/10/17/persistent-layout-patterns-in-nextjs/
