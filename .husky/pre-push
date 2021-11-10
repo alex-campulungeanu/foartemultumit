@@ -6,9 +6,12 @@ set -e
 
 #when pushing to master do a build before to check if everythink is ok, a publish to Netlify is triggered
 # TODO: chech if is better to do this on merge to master on maybe add a separate pre-merge hook
+
+PROTECTED_BRANCH='master'
+
 branch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
-if [ "$branch" == "master" ]
+if [ "$branch" == "$PROTECTED_BRANCH" ]
 then
-    echo "Run precommit on branch $branch"
+    echo "Run pre push on branch $branch"
     npm run build
 fi
