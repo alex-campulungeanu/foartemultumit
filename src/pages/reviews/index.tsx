@@ -10,6 +10,7 @@ import {actions} from '@redux/index'
 import {stringWrapper} from '@utils/misc'
 import {FilterByBar} from '@components/FilterByBar'
 import {ProductUrlCard} from '@components/ProductUrlCard'
+import ReviewsSummaryBar from '@components/ReviewsSummaryBar'
 
 const reviewsFetcher = async (params) => {
   const [, { url }] = params.queryKey;
@@ -83,12 +84,15 @@ const Reviews = ({productUrl }) => {
   
   return (
     <div>
-      <ProductUrlCard productUrl = {productUrl}/>
-      {/* Check why doesn't work fi put content-list class on next div */}
-      <div>
-         <ReviewsList reviews={filterdReviews}/>
+      <ReviewsSummaryBar />
+      <div className='ml-64'>
+        <ProductUrlCard productUrl = {productUrl}/>
+        {/* Check why doesn't work fi put content-list class on next div */}
+        <div>
+           <ReviewsList reviews={filterdReviews}/>
+        </div>
+        <FilterByBar handleFilter={handleChange}/>
       </div>
-      <FilterByBar handleFilter={handleChange}/>
     </div>
   )
 }

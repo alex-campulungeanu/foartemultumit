@@ -57,7 +57,7 @@ a {
   }
 
   .summary-bar {
-    @apply fixed w-56 m-0 ml-16 flex flex-col bg-gray-200 dark:bg-gray-800 h-screen shadow-lg
+    @apply fixed w-56 m-0 flex flex-col bg-gray-200 dark:bg-gray-800 h-screen shadow-lg
     overflow-auto;
   }
 
@@ -116,7 +116,8 @@ a {
     bg-gray-300 dark:bg-gray-700
     h-full 
     w-full
-    ml-72
+    mt-16
+    ml-16
     overflow-hidden;
   }
 
@@ -127,11 +128,13 @@ a {
     overflow-y-scroll;
   }
 
+
   .top-navigation {
-    @apply flex flex-row items-center justify-between
+    @apply fixed flex flex-row items-center justify-between
     bg-gray-300 dark:bg-gray-700 bg-opacity-90 
     w-full h-16 
     m-0 
+    ml-16
     shadow-lg;
   }
 
@@ -148,7 +151,7 @@ a {
   }
 
   .top-navigation-icon:last-of-type {
-    @apply ml-auto mr-16;
+    @apply ml-auto mr-24;
   }
 
   .title-hashtag {
