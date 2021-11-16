@@ -69,7 +69,7 @@ const Reviews = ({productUrl }) => {
   }
 
   if (isLoading || isFetching) return (
-    <div className='mt-4'>
+    <div className='flex justify-center items-center h-screen'>
       <Spinner />
     </div>
   )
