@@ -3,6 +3,7 @@ import axios from 'axios'
 import { useQuery } from 'react-query'
 import {useDispatch} from 'react-redux'
 import {bindActionCreators} from 'redux'
+import Link from "next/link";
 
 import ReviewsList from '@components/ReviewsList'
 import {Spinner} from '@components/Spinner'
@@ -11,6 +12,7 @@ import {stringWrapper} from '@utils/misc'
 import {FilterByBar} from '@components/FilterByBar'
 import {ProductUrlCard} from '@components/ProductUrlCard'
 import ReviewsSummaryBar from '@components/ReviewsSummaryBar'
+import {ErrorPage} from '@components/ErrorPage'
 
 const reviewsFetcher = async (params) => {
   const [, { url }] = params.queryKey;
@@ -29,6 +31,7 @@ const Reviews = ({productUrl }) => {
       staleTime: 0,
       onSuccess: (data) => {
         const reviews = data.data
+        console.log(reviews)
         setReviews(reviews)
         addTotalReview(reviews)
         setFilteredReviews(reviews)
@@ -76,9 +79,7 @@ const Reviews = ({productUrl }) => {
 
   if (error){
     return (
-      <div className='mt-4'>
-        some error when fetching comments
-      </div>
+      <ErrorPage message='Error occured when fetching comments' statusCode={500}/>
     )
   }
   
