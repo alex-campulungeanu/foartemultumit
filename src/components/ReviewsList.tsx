@@ -1,6 +1,7 @@
 import Reviewtem from './Reviewtem'
+import {EmagResponse} from '@interfaces/reviewsInterface'
 
-const ReviewsList = ({reviews}) => {
+const ReviewsList = ({reviews}: {reviews: Array<EmagResponse>}) => {
   return (
     <div className='review-list'>
       {reviews.map(review => (

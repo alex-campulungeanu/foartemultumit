@@ -29,6 +29,7 @@
       "@utils/*": ["./src/utils/*"],
       "@styles/*": ["./src/styles/*"],
       "@redux/*": ["./src/redux/*"],
+      "@interfaces/*": ["./src/interfaces/*"],
       "@src/*": ["./src/*"]
     }
   },
