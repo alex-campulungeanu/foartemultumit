@@ -93,3 +93,11 @@ export function normalizeString(input: string): string {
   const res: string = input.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")
   return res
 }
+
+export async function copyTextToClipboard(text) {
+  if ('clipboard' in navigator) {
+    return await navigator.clipboard.writeText(text);
+  } else {
+    return document.execCommand('copy', true, text);
+  }
+}

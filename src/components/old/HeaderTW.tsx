@@ -5,7 +5,7 @@ import HomeIcon from '@material-ui/icons/Home';
 import redirect from '@src/lib/redirect'
 
 import headerStyles from '../styles/Header.module.css'
-import {HeaderOption} from '@components/HeaderOption'
+import HeaderOption from '@components/old/HeaderOption'
 
 const Header = () => {
   //TODO: change this to a proper redirect, maybe using Link from next
