@@ -11,7 +11,7 @@ import {actions} from '@redux/index'
 import {stringWrapper, normalizeString} from '@utils/misc'
 import {FilterByBar} from '@components/FilterByBar'
 import {ProductUrlCard} from '@components/ProductUrlCard'
-import ReviewsSummaryBar from '@components/ReviewsSummaryBar'
+import ActionsBar from '@components/ActionsBar'
 import {ErrorPage} from '@components/ErrorPage'
 import {EmagResponse} from '@interfaces/reviewsInterface'
 
@@ -87,7 +87,7 @@ const Reviews = ({productUrl} : {productUrl: string}) => {
   
   return (
     <div>
-      <ReviewsSummaryBar />
+      <ActionsBar />
       <div className='ml-64'>
         <ProductUrlCard productUrl = {productUrl}/>
         {/* Check why doesn't work fi put content-list class on next div */}

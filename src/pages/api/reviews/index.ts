@@ -10,9 +10,9 @@ import {EmagResponse} from '@interfaces/reviewsInterface'
 
 export default async function handler (req, res) {
 
-  // if (true) {
-  //   return res.status(200).json({success: true, data: fakeReviewData}) 
-  // }
+  if (true) {
+    return res.status(200).json({success: true, data: fakeReviewData}) 
+  }
 
   const reviewsTreshhold = 100
   const url = req.body.url

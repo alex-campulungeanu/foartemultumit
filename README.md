@@ -52,6 +52,7 @@ docker-compose up -d
 - [ ] sa pun lazy loading pe review-uri cand sunt multe pe pagin, sa vad cum fac cu filtrarea in cazul asta
 - [ ] sa adaug o pagina de admin, cu mongoDB
 - [ ] sa adaug primary, secondary color la tema
+- [ ] sa adaug sectiune cu sortarea review-urile in functie de tema
 - [x] sa persiste tema light/dark
 - [x] topNavigation fix
 - [x] sa extrag ce am nevoie din raspunsul emag
