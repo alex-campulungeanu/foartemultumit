@@ -3,7 +3,7 @@ import axios from 'axios'
 
 import {axiosService} from '@services/axiosService'
 
-export const fetchHtml = async (url) => {
+export const fetchHtml = async (url: string) => {
   const {data} = await axiosService(url, {
     method: 'GET',
   })

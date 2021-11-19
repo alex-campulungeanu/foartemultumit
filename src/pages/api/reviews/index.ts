@@ -5,6 +5,7 @@ import logger from '@services/pinoService'
 import {fetchHtml} from '@utils/scrapping'
 import {getIntegerAndRemainder} from '@utils/misc'
 import {fakeReviewData} from '../../../../data'
+import {EmagResponse} from '@interfaces/reviewsInterface'
 
 
 export default async function handler (req, res) {
@@ -19,7 +20,7 @@ export default async function handler (req, res) {
   // const url = 'https://www.emag.ro/sistem-powerup-rog-custom-watercooling-argb-amd-ryzen-9-5900x-12core-3-7-4-8ghz-64-gb-ddr4-ssd-2tb-m-2-asus-rog-x570-f-rtx-3090-24gb-gddr6x-384bit-850w-p7-rog-r926/pd/DBK7RDMBM/'
 
   try {
-    let reviewsList: Array<any> = []
+    let reviewsList: Array<EmagResponse> = []
     const $ = await fetchHtml(url)
     const container: BasicAcceptedElems<any> | undefined= $('#navbar_sticky').html()
     const nrReviewsRaw = $(container).find('a[href=#reviews-section]').text()
@@ -39,7 +40,17 @@ export default async function handler (req, res) {
       const urlDynamic = `${urlFeedback}reviews/list?source_id=7&page[offset]=${offset}&page[limit]=${limit}&sort[votes]=desc`
       const resp = await axiosService.get(urlDynamic)
       const reviews = resp.data.reviews.items
-      reviewsList = [...reviewsList, ...reviews]
+      const parsedReviews: Array<EmagResponse> = reviews.map(review =>  {
+        return {
+          content: review.content,
+          user: {name: review.user.name},
+          created: review.created,
+          id: review.id
+        } as EmagResponse
+      })
+      // console.log(parsedReviews)
+      
+      reviewsList = [...reviewsList, ...parsedReviews]
       //wait 1 second before another api call
       await new Promise(resolve => setTimeout(resolve, 1000));
     }))

@@ -51,8 +51,10 @@ docker-compose up -d
 - [ ] sa factot background-ul fill cu gri
 - [ ] sa pun lazy loading pe review-uri cand sunt multe pe pagin, sa vad cum fac cu filtrarea in cazul asta
 - [ ] sa adaug o pagina de admin, cu mongoDB
-- [ ] sa persiste tema light/dark
-- [ ] topNavigation fix
+- [ ] sa adaug primary, secondary color la tema
+- [x] sa persiste tema light/dark
+- [x] topNavigation fix
+- [x] sa extrag ce am nevoie din raspunsul emag
 - [x] sa ma gandesc la o strategie pentru layout-uri diferite in functie de pagina
   https://simplernerd.com/nextjs-multiple-layouts/
   https://adamwathan.me/2019/10/17/persistent-layout-patterns-in-nextjs/
@@ -76,7 +78,7 @@ docker-compose up -d
 
 ## Testing
 https://www.emag.ro/gel-booster-zilnic-vichy-mineral-89-cu-efect-de-hidratare-fortifiere-si-reumplere-cu-acid-hialuronic-50ml-3337875543248/pd/DTHDQFBBM/
-
+https://www.emag.ro/televizor-led-star-light-60-cm-hd-clasa-f-24dm3500/pd/D1ZF82BBM/
 
 
 

@@ -2,8 +2,9 @@ import React from 'react';
 import {format, parseISO} from 'date-fns'
 
 import {getAuthorInitials} from '@utils/misc'
+import {EmagResponse} from '@interfaces/reviewsInterface'
 
-const ReviewItem = ({review}) => {
+const ReviewItem = ({review} : {review: EmagResponse}) => {
   const seed = Math.round(Math.random() * 100)
   const createdFormated = format(parseISO(review.created), 'dd/MM/yyyy')
 

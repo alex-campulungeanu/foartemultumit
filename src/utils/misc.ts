@@ -25,7 +25,7 @@ export const getIntegerAndRemainder = (divider: number, treshhold: number): numb
   return arr
 }
 
-export const stringWrapper = (data, filter, stringOpen='<span style="color: red">', stringClosed='</span>') => {
+export const stringWrapper = (data: string, filter, stringOpen='<span style="color: red">', stringClosed='</span>'): string => {
   let returnedData = data
   const filterLength = filter.length
   const normalizedData = data.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")
@@ -78,7 +78,7 @@ export const getAuthorInitials = (name: string): string => {
   return initials.join(' ')
 }
 
-export function getRandomColor(inputString) {
+export function getRandomColor(inputString: string): string {
   inputString = inputString.substr(0, 10);
 
   var hash = 0;
@@ -87,4 +87,17 @@ export function getRandomColor(inputString) {
   }
   var index = Math.abs(hash % randomColors.length);
   return randomColors[index];
+}
+
+export function normalizeString(input: string): string {
+  const res: string = input.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+  return res
+}
+
+export async function copyTextToClipboard(text) {
+  if ('clipboard' in navigator) {
+    return await navigator.clipboard.writeText(text);
+  } else {
+    return document.execCommand('copy', true, text);
+  }
 }

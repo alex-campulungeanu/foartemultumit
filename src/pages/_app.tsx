@@ -5,6 +5,7 @@ import NProgress from "nprogress";
 import { QueryClientProvider } from "react-query";
 import "nprogress/nprogress.css";
 import {Provider} from 'react-redux'
+import { Toaster } from 'react-hot-toast';
 
 // import theme from '@src/theme/index'
 import AppLayout from '../components/AppLayout'
@@ -23,6 +24,7 @@ function MyApp({ Component, pageProps }: AppProps): ReactElement {
   return (
     <Provider store={store}>
       <QueryClientProvider client={queryClient}>
+          <Toaster position="bottom-center"/>
           <AppLayout>
             <Component {...pageProps} />
           </AppLayout>

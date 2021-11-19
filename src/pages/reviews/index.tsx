@@ -3,21 +3,24 @@ import axios from 'axios'
 import { useQuery } from 'react-query'
 import {useDispatch} from 'react-redux'
 import {bindActionCreators} from 'redux'
+import Link from "next/link";
 
 import ReviewsList from '@components/ReviewsList'
 import {Spinner} from '@components/Spinner'
 import {actions} from '@redux/index'
-import {stringWrapper} from '@utils/misc'
+import {stringWrapper, normalizeString} from '@utils/misc'
 import {FilterByBar} from '@components/FilterByBar'
 import {ProductUrlCard} from '@components/ProductUrlCard'
 import ReviewsSummaryBar from '@components/ReviewsSummaryBar'
+import {ErrorPage} from '@components/ErrorPage'
+import {EmagResponse} from '@interfaces/reviewsInterface'
 
 const reviewsFetcher = async (params) => {
   const [, { url }] = params.queryKey;
   return axios.post(`/api/reviews`, {url: url}).then(res => res.data)
 }
 
-const Reviews = ({productUrl }) => {
+const Reviews = ({productUrl} : {productUrl: string}) => {
   const [reviews, setReviews] = useState([])
   const [filterdReviews, setFilteredReviews] = useState([])
   const dispatch = useDispatch()
@@ -29,6 +32,7 @@ const Reviews = ({productUrl }) => {
       staleTime: 0,
       onSuccess: (data) => {
         const reviews = data.data
+        // console.log(reviews)
         setReviews(reviews)
         addTotalReview(reviews)
         setFilteredReviews(reviews)
@@ -42,12 +46,13 @@ const Reviews = ({productUrl }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])  
 
-  const filterReviews = (data, filterWord) => {
+  // TODO: optimize this (it's kinda slow)
+  const filterReviews = (data, filterWord: string) => {
+    const normalizedWord: string = normalizeString(filterWord)
     return data
       .filter(obj => {
-        const body = obj.content.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") //remove diacritics
-        const word = filterWord.toLowerCase()
-        return body.includes(word)
+        const body = normalizeString(obj.content)
+        return body.includes(normalizedWord)
       }) // filter array first
       .map(obj => {
         const n = {
@@ -55,7 +60,7 @@ const Reviews = ({productUrl }) => {
           children: obj.children && filterReviews(obj.children, '') // filter children
         }
         // const colored = {...n, content: n.content.replace(filterWord, `<span style="color: red">${filterWord}</span>`)}
-        const colored = {...n, content: stringWrapper(n.content, filterWord)}
+        const colored = {...n, content: stringWrapper(n.content, normalizedWord)}
         return colored
       })
   } 
@@ -76,9 +81,7 @@ const Reviews = ({productUrl }) => {
 
   if (error){
     return (
-      <div className='mt-4'>
-        some error when fetching comments
-      </div>
+      <ErrorPage message='Error occured when fetching comments' statusCode={500}/>
     )
   }
   
