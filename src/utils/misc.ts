@@ -101,3 +101,24 @@ export async function copyTextToClipboard(text) {
     return document.execCommand('copy', true, text);
   }
 }
+
+/* Usage
+  this.<array_of_objects>.sort(sortJsonByProperty(<property>))
+  !!! do not mutate initial array
+*/
+
+export const sortJsonByPropertyComparator = (property: string, ascending:boolean=false) => {
+  return (a: any, b: any) => {
+    if (a[property] > b[property]) {
+      return ascending ? 1 : -1
+    } else if (a[property] < b[property]) {
+      return ascending ? -1 : 1
+    }
+    return 0
+  }
+}
+
+export const sortJsonByProperty = (arr: Array<any>, property: string, ascending:boolean=false): Array<any> => {
+  const sorted = arr.slice().sort(sortJsonByPropertyComparator(property, ascending))
+  return sorted
+}

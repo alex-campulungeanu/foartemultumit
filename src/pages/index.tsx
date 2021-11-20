@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { useDispatch } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import {actions} from '@redux/index'
+import {actions} from '@store/index'
 import { FaSearch, FaSistrix } from 'react-icons/fa'
 import { useRouter } from 'next/router'
 
@@ -39,7 +39,7 @@ const Home = (): JSX.Element => {
   }
 
   return (
-    <div>
+    <div className='h-screen'>
       <form onSubmit={handleSubmit}>
         <div className="flex flex-col justify-center items-center my-7">
           <div className='search-url'>

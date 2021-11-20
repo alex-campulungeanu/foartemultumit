@@ -4,7 +4,7 @@ import {EmagResponse} from '@interfaces/reviewsInterface'
 const ReviewsList = ({reviews}: {reviews: Array<EmagResponse>}) => {
   return (
     <div className='review-list'>
-      {reviews.map(review => (
+      {reviews && reviews.map(review => (
         <Reviewtem review={review} key={review.id}/>
       ))}
     </div>
