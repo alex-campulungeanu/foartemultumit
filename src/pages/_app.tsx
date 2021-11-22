@@ -6,6 +6,7 @@ import { QueryClientProvider } from "react-query";
 import "nprogress/nprogress.css";
 import {Provider} from 'react-redux'
 import { Toaster } from 'react-hot-toast';
+import 'tippy.js/dist/tippy.css';
 
 // import theme from '@src/theme/index'
 import AppLayout from '../components/AppLayout'

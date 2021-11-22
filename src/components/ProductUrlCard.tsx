@@ -4,6 +4,7 @@ import {MdOutlineContentCopy} from 'react-icons/md'
 import toast from 'react-hot-toast'
 
 import {copyTextToClipboard} from '@utils/misc'
+import {Tooltip} from '@components/misc/Tooltip'
 
 
 interface ProductUrlCardProps {
@@ -37,7 +38,11 @@ export const ProductUrlCard = ({productUrl}: ProductUrlCardProps): JSX.Element =
         {productUrl}
       </div>
       <div className="cursor-pointer" onClick={handleCopyClick}>
-        <MdOutlineContentCopy size='30'/>
+        <Tooltip content="Copy link" placement="bottom">
+          <span className='hover:text-green-200 duration-250'>
+            <MdOutlineContentCopy size='30'/>
+          </span>
+        </Tooltip>
       </div>
   </div>
   )
