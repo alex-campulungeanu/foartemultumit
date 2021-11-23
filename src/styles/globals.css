@@ -51,11 +51,6 @@ a {
     transition-all duration-100 scale-0 origin-left;
   }
 
-  .sidebar-hr {
-    @apply bg-gray-200 dark:bg-gray-800 
-    border border-gray-200 dark:border-gray-800 rounded-full mx-2;
-  }
-
   .summary-bar {
     @apply fixed w-56 m-0 flex flex-col bg-gray-200 dark:bg-gray-800 h-screen shadow-lg
     overflow-auto;
@@ -100,14 +95,6 @@ a {
     @apply flex flex-row items-center justify-evenly
     mt-1 mr-auto ml-2
     transition duration-300 ease-in-out
-    cursor-pointer;
-  }
-
-  .dropdown-selection-text {
-    @apply text-gray-500 font-semibold tracking-wide
-    mr-auto
-    transition duration-300 ease-in-out 
-    hover:text-pink-500 dark:hover:text-gray-500
     cursor-pointer;
   }
 

@@ -2,6 +2,7 @@
 import { FaRegCommentDots } from 'react-icons/fa';
 
 import redirect from '@src/lib/redirect';
+import {Divider} from '@components/misc/Divider'
 
 interface SideBarIconProps {
   icon: JSX.Element,
@@ -22,7 +23,7 @@ const SideBar = () => {
         text='Filter them ! 💡'
         onClick={() => console.log('someclick')}
       />
-      <Divider />
+      <Divider borderColor='red' />
       {/* <SideBarIcon icon={<BsPlus size="32" />} />
       <SideBarIcon icon={<BsFillLightningFill size="20" />} />
       <SideBarIcon icon={<FaPoo size="20" />} />
@@ -40,8 +41,5 @@ const SideBarIcon = ({ icon, text = 'Filter them ! 💡' }: SideBarIconProps) =>
     </span>
   </div>
 );
-
-
-const Divider = () => <hr className="sidebar-hr" />;
 
 export default SideBar;

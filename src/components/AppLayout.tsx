@@ -5,7 +5,7 @@ import Meta from './Meta'
 // import styles from '../styles/Layout.module.css'
 // import {Sidebar} from '@components/Sidebar'
 import Sidebar from './Sidebar'
-import ReviewsSummaryBar from './ReviewsSummaryBar'
+import ActionsBar from './ActionsBar'
 import TopNavigation from './TopNavigation'
 
 interface AppLayoutProps {
@@ -18,7 +18,7 @@ const AppLayout = ({children}: AppLayoutProps): JSX.Element => {
       <Meta />
       <Sidebar />
       <TopNavigation />
-      {/* <ReviewsSummaryBar /> */}
+      {/* <ActionsBar /> */}
       <div className='content-container'>
         {children}
       </div>

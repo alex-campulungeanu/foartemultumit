@@ -28,7 +28,7 @@
       "@services/*": ["src/services/*"],
       "@utils/*": ["./src/utils/*"],
       "@styles/*": ["./src/styles/*"],
-      "@redux/*": ["./src/redux/*"],
+      "@store/*": ["./src/store/*"],
       "@interfaces/*": ["./src/interfaces/*"],
       "@src/*": ["./src/*"]
     }
