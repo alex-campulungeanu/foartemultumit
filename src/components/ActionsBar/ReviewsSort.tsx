@@ -1,26 +1,35 @@
 import React, { useState } from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import { bindActionCreators } from 'redux'
-import {BiSortDown, BiSortUp} from 'react-icons/bi'
 import {FcAlphabeticalSortingAz, FcAlphabeticalSortingZa} from 'react-icons/fc'
 
 import {RootState} from '@store/reducers'
 import {actions} from '@store/index'
 import {EmagResponse} from '@interfaces/reviewsInterface'
 import {sortJsonByProperty} from '@utils/misc'
+import { Tooltip } from '@components/misc/Tooltip'
 
 // type directionType  = 'up' | 'down'
 
-const options = [
+interface Options {
+  id: number,
+  icon: JSX.Element,
+  ascending: boolean,
+  label: string
+}
+
+const options: Array<Options> = [
   {
     id: 1,
     icon: <FcAlphabeticalSortingAz size='28'/>,
-    ascending: false
+    ascending: false,
+    label: 'recent first'
   },
   {
     id: 2,
     icon: <FcAlphabeticalSortingZa size='28'/>,
-    ascending: true
+    ascending: true,
+    label: 'oldest first'
   }
 ]
 
@@ -43,12 +52,14 @@ const ReviewsSort = (): JSX.Element => {
       {
         options.map(item => {
           return (
-            <div 
-              key={item.id} 
-              onClick={() => sortReviews(item.ascending, item.id)} 
-              className={`cursor-pointer bg-gray-400 rounded-lg p-2 ${currentOption != item.id ? 'bg-transparent': null}`}>
-              {item.icon}
-            </div>
+            <Tooltip content={item.label} placement="bottom">
+              <div 
+                key={item.id} 
+                onClick={() => sortReviews(item.ascending, item.id)} 
+                className={`cursor-pointer bg-gray-400 rounded-lg p-2 ${currentOption != item.id ? 'bg-transparent': null}`}>
+                {item.icon}
+              </div>
+          </Tooltip>
           )
        }) 
       }
