@@ -52,9 +52,8 @@ const ReviewsSort = (): JSX.Element => {
       {
         options.map(item => {
           return (
-            <Tooltip content={item.label} placement="bottom">
+            <Tooltip content={item.label} placement="bottom" key={item.id} >
               <div 
-                key={item.id} 
                 onClick={() => sortReviews(item.ascending, item.id)} 
                 className={`cursor-pointer bg-gray-400 rounded-lg p-2 ${currentOption != item.id ? 'bg-transparent': null}`}>
                 {item.icon}
