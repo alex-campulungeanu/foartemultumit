@@ -19,6 +19,7 @@
     "https-proxy-agent": "^5.0.0",
     "net": "^1.0.2",
     "next": "11.0.0",
+    "next-auth": "^3.29.0",
     "nprogress": "^0.2.0",
     "pino": "^6.11.3",
     "pino-pretty": "^5.0.2",

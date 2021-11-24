@@ -14,13 +14,15 @@ interface AppLayoutProps {
 
 const AppLayout = ({children}: AppLayoutProps): JSX.Element => {
   return (
-    <div className='flex'>
-      <Meta />
-      <Sidebar />
-      <TopNavigation />
-      {/* <ActionsBar /> */}
-      <div className='content-container'>
+    <div className="flex flex-col h-screen">
+      <div className="py-5 bg-gray-700 text-white text-center">
+        Sticky Header and Footer with Tailwind
+      </div>
+      <div className="flex-1 overflow-y-auto p-5">
         {children}
+      </div>
+      <div className="py-5 bg-gray-700 text-center text-white">
+        Tailwind is Awesome 😎
       </div>
     </div>
   )

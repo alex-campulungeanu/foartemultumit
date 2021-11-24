@@ -98,15 +98,6 @@ a {
     cursor-pointer;
   }
 
-  .content-container {
-    @apply flex flex-col
-    bg-gray-300 dark:bg-gray-700
-    w-full
-    mt-16
-    ml-16
-    overflow-hidden;
-  }
-
   .review-list {
     @apply flex flex-col items-center 
     h-full w-full 
@@ -118,8 +109,8 @@ a {
   .top-navigation {
     @apply fixed flex flex-row items-center justify-between
     bg-gray-300 dark:bg-gray-700 bg-opacity-90 
-    w-full h-16 
-    m-0 
+    w-full  
+    /* m-0  */
     ml-16
     shadow-lg;
   }
