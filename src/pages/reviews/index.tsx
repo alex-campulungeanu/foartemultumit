@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useQuery } from 'react-query'
 import {useDispatch, useSelector} from 'react-redux'
 import {bindActionCreators} from 'redux'
-import Link from "next/link";
+import InfiniteScroll from 'react-infinite-scroll-component'
 
 import ReviewsList from '@components/ReviewsList'
 import {Spinner} from '@components/Spinner'
@@ -93,7 +93,11 @@ const Reviews = ({productUrl} : {productUrl: string}) => {
         <ProductUrlCard productUrl = {productUrl}/>
         {/* Check why doesn't work fi put content-list class on next div */}
         <div>
-           <ReviewsList reviews={reviewsStore.filteredReviews}/>
+           {/* <InfiniteScroll
+            dataLength={reviewsStore.filteredReviews.length}
+           > */}
+             <ReviewsList reviews={reviewsStore.filteredReviews}/>
+           {/* </InfiniteScroll> */}
         </div>
         <FilterByBar handleFilter={handleChange}/>
       </div>

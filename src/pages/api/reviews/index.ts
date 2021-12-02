@@ -10,17 +10,17 @@ import {EmagResponse} from '@interfaces/reviewsInterface'
 
 export default async function handler (req, res) {
 
-  // if (true) {
-  //   const parsedReviews: Array<EmagResponse> = fakeReviewData.map(review =>  {
-  //     return {
-  //       content: review.content,
-  //       user: {name: review.user.name},
-  //       created: review.created,
-  //       id: review.id
-  //     } as EmagResponse
-  //   })
-  //   return res.status(200).json({success: true, data: parsedReviews}) 
-  // }
+  if (true) {
+    const parsedReviews: Array<EmagResponse> = fakeReviewData.map(review =>  {
+      return {
+        content: review.content,
+        user: {name: review.user.name},
+        created: review.created,
+        id: review.id
+      } as EmagResponse
+    })
+    return res.status(200).json({success: true, data: parsedReviews}) 
+  }
 
   const reviewsTreshhold = 100
   const url = req.body.url

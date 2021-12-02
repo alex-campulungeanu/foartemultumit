@@ -47,10 +47,11 @@ docker-compose up -d
 - [ ] sa fac tot background-ul fill cu gri pe pagina cu reviewuri
 - [ ] sa adaug paginare pentru reviewuri (filtrarea sa tina cont si de paginare)
 - [ ] add a git hook with build before merging to master
-- [ ] sa sortez comentariile in functie de likeuri/data etc
+- [x] sa sortez comentariile in functie de likeuri/data etc
 - [ ] sa marchez cumva ce iconita de sortare a fost selectata, poate cu un background
 - [ ] sa factot background-ul fill cu gri
 - [ ] sa pun lazy loading pe review-uri cand sunt multe pe pagin, sa vad cum fac cu filtrarea in cazul asta
+  https://blog.logrocket.com/4-ways-to-render-large-lists-in-react/
 - [ ] sa adaug o pagina de admin, cu mongoDB
 - [ ] sa adaug primary, secondary color la tema
 - [ ] sa adaug sectiune cu sortarea review-urile in functie de tema
