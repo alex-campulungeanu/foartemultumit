@@ -14,7 +14,7 @@ interface AppLayoutProps {
 
 const AppLayout = ({children}: AppLayoutProps): JSX.Element => {
   return (
-    <div className='flex'>
+    <div className='flex h-screen'>
       <Meta />
       <Sidebar />
       <TopNavigation />

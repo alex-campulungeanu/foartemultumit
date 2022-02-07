@@ -39,7 +39,7 @@ const Home = (): JSX.Element => {
   }
 
   return (
-    <div className='h-screen'>
+    <div>
       <form onSubmit={handleSubmit}>
         <div className="flex flex-col justify-center items-center my-7">
           <div className='search-url'>
