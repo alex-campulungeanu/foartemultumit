@@ -64,7 +64,37 @@ const Reviews = ({productUrl} : {productUrl: string}) => {
         return colored
       })
       return res
-  } 
+  }
+
+  // chatGPT version
+   /* const filterReviews = (data, filterWord) => {
+    const normalizedWord = normalizeString(filterWord);
+    const memoizedStrings = new Map();
+  
+    const filterFn = obj => {
+      const body = memoizedStrings.get(obj.content) ||
+        (memoizedStrings.set(obj.content, normalizeString(obj.content)), memoizedStrings.get(obj.content));
+      return body.indexOf(normalizedWord) >= 0;
+    };
+  
+    const colorFn = obj => {
+      const content = memoizedStrings.get(obj.content) || 
+        (memoizedStrings.set(obj.content, normalizeString(obj.content)), memoizedStrings.get(obj.content));
+      return {
+        ...obj,
+        content: stringWrapper(content, normalizedWord)
+      };
+    };
+  
+    for (let i = 0; i < data.length; i++) {
+      const obj = data[i];
+      if (filterFn(obj)) {
+        colorFn(obj);
+      }
+    }
+  
+    return data;
+  }; */ 
 
   const handleChange = (event) => {
     const word = event.target.value
